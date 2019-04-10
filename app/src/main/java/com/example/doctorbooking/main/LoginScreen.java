@@ -12,18 +12,15 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.doctorbooking.R;
 import com.example.doctorbooking.util.Constants;
 
 public class LoginScreen extends AppCompatActivity {
 
-    private EditText ed_username;
-    private Button button3;
-    private SharedPreferences sharedPreferences;
-    private boolean isusernameOk = false;
-   // private boolean ispasswordOk = false;
+    private EditText ed_mobile;
+    private Button button3,btn_login_with_otp,btn_login_with_pass;
+    private boolean isUsernameOk = false;
 
     public static void hideSoftKeyboard(Activity activity) {
         InputMethodManager inputMethodManager =
@@ -39,59 +36,39 @@ public class LoginScreen extends AppCompatActivity {
         setContentView(R.layout.activity_login_screen);
         setupUI(findViewById(R.id.parent));
 
-
-        sharedPreferences = getSharedPreferences(Constants.pref_name, Context.MODE_PRIVATE);
-        if (sharedPreferences.getBoolean("isLoggedIn",false)) {
+        SharedPreferences sharedPreferences = getSharedPreferences(Constants.pref_name, Context.MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("isLoggedIn", false)) {
             Intent intent = new Intent(LoginScreen.this, HomeActivity.class);
             startActivity(intent);
             finish();
         }
 
-        ed_username = findViewById(R.id.ed_username);
-        button3 = findViewById(R.id.button3);
+        onClick();
+    }
 
+    private void onClick() {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ed_username.getText().toString().equals("")) {
-                    isusernameOk = false;
-                    ed_username.setError("Enter username");
+                if (ed_mobile.getText().toString().equals("")) {
+                    isUsernameOk = false;
+                    ed_mobile.setError("Enter mobile");
 
                 } else {
-                    isusernameOk = true;
+                    isUsernameOk = true;
                 }
-//                if (ed_password.getText().toString().equals("")) {
-//                    ed_password.setError("Enter password");
-//                    isusernameOk = false;
-//                } else {
-//                    ispasswordOk = true;
-//                }
-                if (isusernameOk) {
-                    checkFromFirebase();
+                if (isUsernameOk) {
+
                 }
 
             }
         });
     }
 
-    private void checkFromFirebase() {
-        if (ed_username.getText().toString().equals(sharedPreferences.getString("username",null))) {
-
-            Toast.makeText(LoginScreen.this, "Login successfully", Toast.LENGTH_SHORT).show();
-            //we need editor to edit created shared preference file
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("username", ed_username.getText().toString()).apply();
-            editor.putBoolean("isLoggedIn",true).apply();
-            Intent intent = new Intent(LoginScreen.this, HomeActivity.class);
-            startActivity(intent);
-            finish();
-        } else
-            Toast.makeText(LoginScreen.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
-    }
-
-
     public void setupUI(View view) {
-
+        ed_mobile = findViewById(R.id.ed_mobile);
+        button3 = findViewById(R.id.button3);
+        btn_login_with_otp = findViewById(R.id.button3);
         // Set up touch listener for non-text box views to hide keyboard.
         if (!(view instanceof EditText)) {
             view.setOnTouchListener(new View.OnTouchListener() {
@@ -113,7 +90,7 @@ public class LoginScreen extends AppCompatActivity {
 
 
     public void goToRegisterActivity(View view) {
-        Intent intent = new Intent(LoginScreen.this,RegisterActivity.class);
+        Intent intent = new Intent(LoginScreen.this, RegisterActivity.class);
         startActivity(intent);
         finish();
     }
