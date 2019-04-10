@@ -6,21 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradient"
-    tools:context=".main.LoginScreen">
+    tools:context=".main.LoginScreen"><![CDATA[
 
-    <TextView
-        android:id="@+id/textView17"
-        style="@style/TextAppearance.MaterialComponents.Body1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Enter password"
-        android:textColor="#fff"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_username" />
-
-    <EditText
+    EditText
         android:id="@+id/ed_password"
         android:layout_width="0dp"
         android:layout_height="49dp"
@@ -37,6 +25,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    ]]>
 
     <EditText
         android:id="@+id/ed_username"
@@ -74,7 +64,7 @@
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="120dp"
-        android:layout_height="130dp"
+        android:layout_height="135dp"
         android:layout_marginTop="56dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -96,13 +86,14 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="72dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_password">
+        app:layout_constraintTop_toBottomOf="@+id/ed_username">
 
         <TextView
             android:id="@+id/textView33"
@@ -119,10 +110,10 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Register"
             android:onClick="goToRegisterActivity"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Register"
             android:textColor="#fff"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
