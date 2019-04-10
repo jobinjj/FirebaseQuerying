@@ -20,11 +20,10 @@ import com.example.doctorbooking.util.Constants;
 public class LoginScreen extends AppCompatActivity {
 
     private EditText ed_username;
-    private EditText ed_password;
     private Button button3;
     private SharedPreferences sharedPreferences;
     private boolean isusernameOk = false;
-    private boolean ispasswordOk = false;
+   // private boolean ispasswordOk = false;
 
     public static void hideSoftKeyboard(Activity activity) {
         InputMethodManager inputMethodManager =
@@ -49,7 +48,6 @@ public class LoginScreen extends AppCompatActivity {
         }
 
         ed_username = findViewById(R.id.ed_username);
-        ed_password = findViewById(R.id.ed_password);
         button3 = findViewById(R.id.button3);
 
         button3.setOnClickListener(new View.OnClickListener() {
@@ -62,29 +60,33 @@ public class LoginScreen extends AppCompatActivity {
                 } else {
                     isusernameOk = true;
                 }
-                if (ed_password.getText().toString().equals("")) {
-                    ed_password.setError("Enter password");
-                    isusernameOk = false;
-                } else {
-                    ispasswordOk = true;
-                }
-                if (isusernameOk && ispasswordOk) {
-                    if (ed_password.getText().toString().equals(sharedPreferences.getString("password",null)) && ed_username.getText().toString().equals(sharedPreferences.getString("username",null))) {
-
-                        Toast.makeText(LoginScreen.this, "Login successfully", Toast.LENGTH_SHORT).show();
-                        //we need editor to edit created shared preference file
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("username", ed_username.getText().toString()).apply();
-                        editor.putBoolean("isLoggedIn",true).apply();
-                        Intent intent = new Intent(LoginScreen.this, HomeActivity.class);
-                        startActivity(intent);
-                        finish();
-                    } else
-                        Toast.makeText(LoginScreen.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+//                if (ed_password.getText().toString().equals("")) {
+//                    ed_password.setError("Enter password");
+//                    isusernameOk = false;
+//                } else {
+//                    ispasswordOk = true;
+//                }
+                if (isusernameOk) {
+                    checkFromFirebase();
                 }
 
             }
         });
+    }
+
+    private void checkFromFirebase() {
+        if (ed_username.getText().toString().equals(sharedPreferences.getString("username",null))) {
+
+            Toast.makeText(LoginScreen.this, "Login successfully", Toast.LENGTH_SHORT).show();
+            //we need editor to edit created shared preference file
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("username", ed_username.getText().toString()).apply();
+            editor.putBoolean("isLoggedIn",true).apply();
+            Intent intent = new Intent(LoginScreen.this, HomeActivity.class);
+            startActivity(intent);
+            finish();
+        } else
+            Toast.makeText(LoginScreen.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
     }
 
 

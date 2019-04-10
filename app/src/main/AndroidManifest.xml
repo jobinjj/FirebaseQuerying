@@ -14,9 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".main.RegisterOtpActivity"
-            android:theme="@style/NoActionbar"/>
-        <activity android:name=".main.RegisterActivity"
+        <activity android:name=".main.LoginDetailActivity"></activity>
+        <activity
+            android:name=".main.RegisterOtpActivity"
+            android:theme="@style/NoActionbar" />
+        <activity
+            android:name=".main.RegisterActivity"
             android:theme="@style/NoActionbar" />
         <activity
             android:name=".main.HomeActivity"
