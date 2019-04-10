@@ -25,7 +25,6 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
     EditText ed_username,ed_mobile,ed_password;
-    private PreferencesHelper preferencesHelper;
     private String verify_url = "http://control.msg91.com/api/sendotp.php?";
     private Button button3;
 
@@ -42,7 +41,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void initSharedPreference() {
-        preferencesHelper = new PreferencesHelper(RegisterActivity.this);
     }
 
     private void onClick() {
@@ -71,13 +69,13 @@ public class RegisterActivity extends AppCompatActivity {
                     isphoneOk = true;
                 }
                 if (ispasswordOk && isusernameOk && isphoneOk){
-                    sendOtp(ed_mobile.getText().toString(),ed_username.getText().toString(),ed_password.getText().toString());
+                    sendOtp(ed_mobile.getText().toString());
                 }
                 }
         });
     }
 
-    private void sendOtp(final String mobile, String toString1, String toString2) {
+    private void sendOtp(final String mobile) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, verify_url, new
                 Response.Listener<String>() {
                     @Override
@@ -95,7 +93,6 @@ public class RegisterActivity extends AppCompatActivity {
                                 finish();
                             }else {
                                 Toast.makeText(RegisterActivity.this, "Error", Toast.LENGTH_SHORT).show();
-
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -3,7 +3,6 @@ package com.example.doctorbooking.main;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,10 +18,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.doctorbooking.R;
 import com.example.doctorbooking.util.AppController;
 import com.example.doctorbooking.util.Constants;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.protobuf.MethodOrBuilder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,7 +26,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegisterOtpActivity extends AppCompatActivity {
+public class LoginOtpActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     EditText ed_digit1,ed_digit2,ed_digit3,ed_digit4;
     Button btn_verify;
@@ -41,15 +37,12 @@ public class RegisterOtpActivity extends AppCompatActivity {
     private String password;
     private PreferencesHelper preferencesHelper;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_otp);
-
+        setContentView(R.layout.activity_login_otp);
         intiViews();
     }
-
     private void intiViews() {
         preferencesHelper = new PreferencesHelper(this);
         sharedPreferences = getSharedPreferences(Constants.pref_name, Context.MODE_PRIVATE);
@@ -63,7 +56,6 @@ public class RegisterOtpActivity extends AppCompatActivity {
         ed_digit4 = findViewById(R.id.ed_digit4);
         btn_verify = findViewById(R.id.btn_verify);
     }
-
     private void verifyOtp(final String digit1, final String digit2, final String digit3, final String digit4) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, verify_url, new
                 Response.Listener<String>() {
@@ -71,17 +63,17 @@ public class RegisterOtpActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             if (new JSONObject(response).getString("type").equals("success")){
-                                addDataToFirebase(name,mobile,password);
-
+                                preferencesHelper.putBoolean("isLoggedIn",true);
+                                Intent intent = new Intent(LoginOtpActivity.this,HomeActivity.class);
+                                startActivity(intent);
+                                finish();
                             }else {
-                                Toast.makeText(RegisterOtpActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginOtpActivity.this, "Some error occured", Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
-
-
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -113,32 +105,8 @@ public class RegisterOtpActivity extends AppCompatActivity {
         AppController.getInstance().addToRequestQueue(stringRequest);
 
     }
-    private void addDataToFirebase(String name, String mobile, String password) {
-        Map<String, Object> user = new HashMap<>();
-        user.put("mobile", mobile);
-        user.put("name", name);
-        user.put("password", password);
-        db.collection("DoctorBooking").document(mobile)
-                .set(user)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        preferencesHelper.putBoolean("isLoggedIn",true);
-                        Intent intent = new Intent(RegisterOtpActivity.this,HomeActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                    }
-                });
-
-    }
-
     public void checkOtp(View view) {
-            verifyOtp(ed_digit1.getText().toString(),ed_digit2.getText().toString(),ed_digit3.getText().toString(),ed_digit4.getText().toString());
+        verifyOtp(ed_digit1.getText().toString(),ed_digit2.getText().toString(),ed_digit3.getText().toString(),ed_digit4.getText().toString());
     }
+
 }
