@@ -40,7 +40,7 @@ public class LoginScreen extends AppCompatActivity {
         setContentView(R.layout.activity_login_screen);
         setupUI(findViewById(R.id.parent));
 
-        Toast.makeText(this, "test", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();
         sharedPreferences = getSharedPreferences(Constants.pref_name, Context.MODE_PRIVATE);
         if (sharedPreferences.getBoolean("isLoggedIn",false)) {
             Intent intent = new Intent(LoginScreen.this, HomeActivity.class);
