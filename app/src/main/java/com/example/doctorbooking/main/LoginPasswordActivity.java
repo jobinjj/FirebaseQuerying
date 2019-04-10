@@ -28,6 +28,7 @@ public class LoginPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_password);
 
+        //test
         ed_mobile = findViewById(R.id.ed_mobile);
         ed_pass= findViewById(R.id.ed_pass);
         ed_mobile.setText(getIntent().getStringExtra("phone"));
