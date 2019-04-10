@@ -63,12 +63,19 @@ public class LoginScreen extends AppCompatActivity {
 
             }
         });
+        btn_login_with_otp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     public void setupUI(View view) {
         ed_mobile = findViewById(R.id.ed_mobile);
         button3 = findViewById(R.id.button3);
-        btn_login_with_otp = findViewById(R.id.button3);
+        btn_login_with_otp = findViewById(R.id.btn_login_with_otp);
+        btn_login_with_pass = findViewById(R.id.btn_login_with_pass);
         // Set up touch listener for non-text box views to hide keyboard.
         if (!(view instanceof EditText)) {
             view.setOnTouchListener(new View.OnTouchListener() {

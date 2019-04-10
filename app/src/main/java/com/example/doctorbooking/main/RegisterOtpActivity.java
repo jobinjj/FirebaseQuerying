@@ -33,12 +33,19 @@ public class RegisterOtpActivity extends AppCompatActivity {
     private String mobile;
     private SharedPreferences sharedPreferences;
     private String password;
+    private PreferencesHelper preferencesHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
 
+        intiViews();
+    }
+
+    private void intiViews() {
+        preferencesHelper = new PreferencesHelper(this);
         sharedPreferences = getSharedPreferences(Constants.pref_name, Context.MODE_PRIVATE);
         name = getIntent().getStringExtra("name");
         mobile = getIntent().getStringExtra("mobile");
@@ -57,14 +64,9 @@ public class RegisterOtpActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            JSONObject jsonObject = new JSONObject(response);
                             if (new JSONObject(response).getString("type").equals("success")){
-                                PreferencesHelper preferencesHelper = new PreferencesHelper(RegisterOtpActivity.this);
-                                preferencesHelper.putString("password",password);
-                                preferencesHelper.putString("username",name);
-                                Toast.makeText(RegisterOtpActivity.this, "verified succesfully", Toast.LENGTH_SHORT).show();
-                                SharedPreferences.Editor editor = sharedPreferences.edit();
-                                editor.putBoolean("isLoggedIn",true).apply();
+
+                                preferencesHelper.putBoolean("isLoggedIn",true);
                                 Intent intent = new Intent(RegisterOtpActivity.this,MainActivity.class);
                                 startActivity(intent);
                                 finish();
