@@ -1,5 +1,6 @@
 package com.example.doctorbooking.main;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -46,24 +47,27 @@ public class LoginPasswordActivity extends AppCompatActivity {
                                         Log.d("tag",user.getMobile());
                                         if (ed_pass.getText().toString().equals(user.getPassword())){
                                             Toast.makeText(LoginPasswordActivity.this, "Passwords match", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(LoginPasswordActivity.this,HomeActivity.class);
+                                            startActivity(intent);
                                         }else {
                                             Toast.makeText(LoginPasswordActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                                         }
                                     }else{
-                                        Toast.makeText(LoginPasswordActivity.this, "Missing user record ", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(LoginPasswordActivity.this, "Account not found Please register", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(LoginPasswordActivity.this,RegisterActivity.class);
+                                        startActivity(intent);
                                     }
 
                                 }else{
                                     String excep = Objects.requireNonNull(task.getException()).getMessage();
                                     Log.d("tag", "Error reading user data " + excep);
-
                                 }
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(LoginPasswordActivity.this, "user does not exist", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginPasswordActivity.this, "user does not exist please register", Toast.LENGTH_SHORT).show();
                             }
                         });
 //                db.collection("DoctorBooking").whereEqualTo("password",ed_pass.getText().toString())
