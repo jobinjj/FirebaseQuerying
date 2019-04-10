@@ -19,7 +19,7 @@ import com.example.doctorbooking.util.Constants;
 
 public class LoginScreen extends AppCompatActivity {
 
-    private EditText ed_username;
+    private EditText ed_mobile;
     private EditText ed_password;
     private Button button3;
     private SharedPreferences sharedPreferences;
@@ -48,16 +48,16 @@ public class LoginScreen extends AppCompatActivity {
             finish();
         }
 
-        ed_username = findViewById(R.id.ed_username);
+        ed_mobile = findViewById(R.id.ed_mobile);
         ed_password = findViewById(R.id.ed_password);
         button3 = findViewById(R.id.button3);
 
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ed_username.getText().toString().equals("")) {
+                if (ed_mobile.getText().toString().equals("")) {
                     isusernameOk = false;
-                    ed_username.setError("Enter username");
+                    ed_mobile.setError("Enter mobile number");
 
                 } else {
                     isusernameOk = true;
@@ -69,12 +69,12 @@ public class LoginScreen extends AppCompatActivity {
                     ispasswordOk = true;
                 }
                 if (isusernameOk && ispasswordOk) {
-                    if (ed_password.getText().toString().equals(sharedPreferences.getString("password",null)) && ed_username.getText().toString().equals(sharedPreferences.getString("username",null))) {
+                    if (ed_password.getText().toString().equals(sharedPreferences.getString("password",null)) && ed_mobile.getText().toString().equals(sharedPreferences.getString("username",null))) {
 
                         Toast.makeText(LoginScreen.this, "Login successfully", Toast.LENGTH_SHORT).show();
                         //we need editor to edit created shared preference file
                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("username", ed_username.getText().toString()).apply();
+                        editor.putString("username", ed_mobile.getText().toString()).apply();
                         editor.putBoolean("isLoggedIn",true).apply();
                         Intent intent = new Intent(LoginScreen.this, HomeActivity.class);
                         startActivity(intent);
