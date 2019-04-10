@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.DoctorlistActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintLayout5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+
+                <ImageView
+                    android:id="@+id/img_doctor4"
+                    android:layout_width="94dp"
+                    android:layout_height="98dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_doctor4" />
+
+                <TextView
+                    android:id="@+id/txt_name4"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:text="Dr. A K Nambiar"
+                    app:layout_constraintStart_toEndOf="@+id/img_doctor4"
+                    app:layout_constraintTop_toTopOf="@+id/img_doctor4" />
+
+                <TextView
+                    android:id="@+id/txt_role4"
+                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Endocrinologists"
+                    app:layout_constraintStart_toEndOf="@+id/img_doctor4"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_name4" />
+
+                <TextView
+                    android:id="@+id/txt_exp4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="2 years exp"
+                    app:layout_constraintStart_toEndOf="@+id/img_doctor4"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_role4" />
+
+                <ImageView
+                    android:id="@+id/img_doctor42"
+                    android:layout_width="94dp"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/txt_exp4"
+                    app:srcCompat="@drawable/button_effect" />
+                <TextView
+                    android:id="@+id/btn_book4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BOOK NOW"
+                    android:textColor="#ffffff"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_doctor42"
+                    app:layout_constraintEnd_toEndOf="@+id/img_doctor42"
+                    app:layout_constraintStart_toStartOf="@+id/img_doctor42"
+                    app:layout_constraintTop_toTopOf="@+id/img_doctor42" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintLayout2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+
+                <ImageView
+                    android:id="@+id/img_doctor3"
+                    android:layout_width="94dp"
+                    android:layout_height="98dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_doctor6" />
+
+                <TextView
+                    android:id="@+id/txt_name3"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:text="Dr. George Thomas"
+                    app:layout_constraintStart_toEndOf="@+id/img_doctor3"
+                    app:layout_constraintTop_toTopOf="@+id/img_doctor3" />
+
+                <TextView
+                    android:id="@+id/txt_role3"
+                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Dermatologists"
+                    app:layout_constraintStart_toEndOf="@+id/img_doctor3"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_name3" />
+
+                <TextView
+                    android:id="@+id/txt_exp3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="3 years exp"
+                    app:layout_constraintStart_toEndOf="@+id/img_doctor3"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_role3" />
+
+                <ImageView
+                    android:id="@+id/btn_book3"
+                    android:layout_width="94dp"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/txt_exp3"
+                    app:srcCompat="@drawable/button_effect" />
+                <TextView
+                    android:id="@+id/txt_book3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BOOK NOW"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="@+id/btn_book3"
+                    app:layout_constraintEnd_toEndOf="@+id/btn_book3"
+                    app:layout_constraintStart_toStartOf="@+id/btn_book3"
+                    app:layout_constraintTop_toTopOf="@+id/btn_book3" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintLayout3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+
+
+                <ImageView
+                    android:id="@+id/img_doctor2"
+                    android:layout_width="94dp"
+                    android:layout_height="98dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_doctor5" />
+
+                <TextView
+                    android:id="@+id/txt_name2"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:text="Dr Rathakrishnan"
+                    app:layout_constraintStart_toEndOf="@+id/img_doctor2"
+                    app:layout_constraintTop_toTopOf="@+id/img_doctor2" />
+
+                <TextView
+                    android:id="@+id/txt_role2"
+                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Cardiologists"
+                    app:layout_constraintStart_toEndOf="@+id/img_doctor2"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_name2" />
+
+                <TextView
+                    android:id="@+id/txt_exp2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="2 years exp"
+                    app:layout_constraintStart_toEndOf="@+id/img_doctor2"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_role2" />
+
+                <ImageView
+                    android:id="@+id/btn_book2"
+                    android:layout_width="94dp"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/txt_exp2"
+                    app:srcCompat="@drawable/button_effect" />
+                <TextView
+                    android:id="@+id/txt_book2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BOOK NOW"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="@+id/btn_book2"
+                    app:layout_constraintEnd_toEndOf="@+id/btn_book2"
+                    app:layout_constraintStart_toStartOf="@+id/btn_book2"
+                    app:layout_constraintTop_toTopOf="@+id/btn_book2" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintLayout4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <ImageView
+                    android:id="@+id/img_doctor1"
+                    android:layout_width="94dp"
+                    android:layout_height="98dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_general_docnew_01"
+                    android:contentDescription="TODO" />
+
+                <TextView
+                    android:id="@+id/txt_name1"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:text="Dr. Mercy Tomson"
+                    app:layout_constraintStart_toEndOf="@+id/img_doctor1"
+                    app:layout_constraintTop_toTopOf="@+id/img_doctor1" />
+
+                <TextView
+                    android:id="@+id/txt_role1"
+                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Gynnecologist/Obsterician"
+                    app:layout_constraintStart_toEndOf="@+id/img_doctor1"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_name1" />
+
+                <TextView
+                    android:id="@+id/txt_exp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="3 years exp"
+                    app:layout_constraintStart_toEndOf="@+id/img_doctor1"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_role1" />
+
+                <ImageView
+                    android:id="@+id/btn_book1"
+                    android:layout_width="94dp"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/txt_exp"
+                    app:srcCompat="@drawable/button_effect" />
+                <TextView
+                    android:id="@+id/txt_book1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BOOK NOW"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="@+id/btn_book1"
+                    app:layout_constraintEnd_toEndOf="@+id/btn_book1"
+                    app:layout_constraintStart_toStartOf="@+id/btn_book1"
+                    app:layout_constraintTop_toTopOf="@+id/btn_book1" />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

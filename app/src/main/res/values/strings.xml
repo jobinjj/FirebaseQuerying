@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Reservation</string>
+    <string name="dialog_fire_missiles">Are you sure?</string>
+    <string name="fire" translatable="false">YES</string>
+    <string name="cancel">CANCEL</string>
+    <string-array name="slots_array">
+        <item>Chech if available</item>
+        <item>Fri 29,19</item>
+        <item>sat 30,19</item>
+    </string-array>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+</resources>

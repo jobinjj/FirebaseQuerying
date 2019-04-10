@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_reservation"
+            android:iconTintMode="multiply"
+            android:title="Reservation" />
+        <item
+            android:id="@+id/nav_camera"
+            android:iconTintMode="multiply"
+            android:title="Departments" />
+        <item
+            android:id="@+id/nav_patients"
+            android:title="Patients" />
+        <item
+            android:id="@+id/nav_manage"
+            android:title="Medical history" />
+        <item
+            android:id="@+id/nav_payment"
+            android:title="Payment history" />
+        <item
+                android:id="@+id/nav_gallery"
+            android:title="Notifications" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:title="Messages" />
+        <item
+            android:id="@+id/nav_donors"
+            android:title="Blood donors" />
+        <item
+            android:id="@+id/nav_accounts"
+            android:title="User account" />
+    </group>
+
+    <!--<item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+        </menu>
+    </item>-->
+
+</menu>

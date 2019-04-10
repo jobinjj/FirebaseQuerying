@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.doctorbooking">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".util.AppController"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".main.RegisterOtpActivity"
+            android:theme="@style/NoActionbar"/>
+        <activity android:name=".main.RegisterActivity"
+            android:theme="@style/NoActionbar" />
+        <activity
+            android:name=".main.HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".main.SplashActivity"
+            android:theme="@style/NoActionbar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".main.EditProfileActivity"
+            android:label="Edit Profile"
+            android:parentActivityName=".main.ProfileActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".main.ProfileActivity"
+            android:parentActivityName=".main.MainActivity"
+            android:theme="@style/NoActionbar" />
+        <activity
+            android:name=".main.LoginScreen"
+            android:theme="@style/NoActionbar" />
+        <activity
+            android:name=".main.FinalActivity"
+            android:label="Reservation details"
+            android:parentActivityName=".main.DoctorlistActivity" />
+        <activity
+            android:name=".main.DoctorDetailActivity"
+            android:label="Doctor details"
+            android:parentActivityName=".main.DoctorlistActivity" />
+        <activity
+            android:name=".main.MainActivity"
+            android:label="Doctor reservation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".main.DoctorlistActivity"
+            android:label="Doctor list"
+            android:parentActivityName=".main.MainActivity" />
+        <activity android:name="com.example.advanced.TestActivity" />
+    </application>
+
+</manifest>
