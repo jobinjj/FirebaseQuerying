@@ -86,12 +86,12 @@
             android:textColor="#FFFFFF"
             android:textColorHint="#BBBBBB"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ed_digit1"
+            app:layout_constraintStart_toEndOf="@+id/ed_pass"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
 
         <EditText
-            android:id="@+id/ed_digit1"
+            android:id="@+id/ed_pass"
             android:layout_width="46dp"
             android:layout_height="51dp"
             android:layout_marginStart="16dp"

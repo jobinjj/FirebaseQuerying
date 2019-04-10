@@ -51,7 +51,7 @@ public class RegisterOtpActivity extends AppCompatActivity {
         mobile = getIntent().getStringExtra("mobile");
         password = getIntent().getStringExtra("password");
 
-        ed_digit1 = findViewById(R.id.ed_digit1);
+        ed_digit1 = findViewById(R.id.ed_pass);
         ed_digit2 = findViewById(R.id.ed_digit2);
         ed_digit3 = findViewById(R.id.ed_digit3);
         ed_digit4 = findViewById(R.id.ed_digit4);

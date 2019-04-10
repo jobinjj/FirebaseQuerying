@@ -69,6 +69,14 @@ public class LoginScreen extends AppCompatActivity {
 
             }
         });
+        btn_login_with_pass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginScreen.this,LoginPasswordActivity.class);
+                intent.putExtra("phone",ed_mobile.getText().toString());
+                startActivity(intent);
+            }
+        });
     }
 
     public void setupUI(View view) {
