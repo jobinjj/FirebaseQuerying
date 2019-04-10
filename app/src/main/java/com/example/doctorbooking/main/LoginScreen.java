@@ -43,7 +43,7 @@ import java.util.Objects;
 
 public class LoginScreen extends AppCompatActivity {
 
-    private EditText ed_mobile;
+    private EditText ed_mobile,ed_pass;
     private Button button3,btn_login_with_otp,btn_login_with_pass;
     private boolean isUsernameOk = false;
     private String verify_url = "http://control.msg91.com/api/sendotp.php?";
@@ -51,6 +51,7 @@ public class LoginScreen extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private ProgressDialog progressDialog;
     private ViewGroup transitionsContainer;
+    private boolean isPasswordOk = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,9 +81,9 @@ public class LoginScreen extends AppCompatActivity {
         transitionsContainer = (ViewGroup) findViewById(R.id.transitions_container);
         container_buttons = transitionsContainer.findViewById(R.id.container_buttons);
         ed_mobile = findViewById(R.id.ed_mobile);
+        ed_pass= findViewById(R.id.ed_password);
         button3 = findViewById(R.id.button3);
         btn_login_with_otp = findViewById(R.id.btn_login_with_otp);
-        btn_login_with_pass = findViewById(R.id.btn_login_with_pass);
         // Set up touch listener for non-text box views to hide keyboard.
         if (!(view instanceof EditText)) {
             view.setOnTouchListener(new View.OnTouchListener() {
@@ -113,7 +114,14 @@ public class LoginScreen extends AppCompatActivity {
                 } else {
                     isUsernameOk = true;
                 }
-                if (isUsernameOk) {
+                if (ed_pass.getText().toString().equals("")) {
+                    isPasswordOk = false;
+                    ed_pass.setError("Enter password");
+
+                } else {
+                    isPasswordOk = true;
+                }
+                if (isUsernameOk && isPasswordOk) {
                     progressDialog = new ProgressDialog(LoginScreen.this);
                     progressDialog.show();
                     progressDialog.setCanceledOnTouchOutside(false);
@@ -125,30 +133,27 @@ public class LoginScreen extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if(task.isSuccessful()){
                                         FirestoreModel user = Objects.requireNonNull(task.getResult()).toObject(FirestoreModel.class);
+                                        //Navigate to profile page
                                         if(user != null){
                                             progressDialog.dismiss();
-                                            TransitionManager.beginDelayedTransition(transitionsContainer);
-                                            container_buttons.setVisibility(View.VISIBLE);
                                             btn_login_with_otp.setOnClickListener(new View.OnClickListener() {
                                                 @Override
                                                 public void onClick(View v) {
                                                     sendOtp(ed_mobile.getText().toString());
                                                 }
                                             });
-                                            btn_login_with_pass.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    Intent intent = new Intent(LoginScreen.this,LoginPasswordActivity.class);
-                                                    intent.putExtra("phone",ed_mobile.getText().toString());
-                                                    startActivity(intent);
-
-                                                }
-                                            });
+                                            Log.d("tag",user.getMobile());
+                                            if (ed_pass.getText().toString().equals(user.getPassword())){
+                                                Toast.makeText(LoginScreen.this, "Passwords match", Toast.LENGTH_SHORT).show();
+                                                Intent intent = new Intent(LoginScreen.this,HomeActivity.class);
+                                                startActivity(intent);
+                                            }else {
+                                                Toast.makeText(LoginScreen.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                                            }
                                         }else{
-                                            Toast.makeText(LoginScreen.this, "user does not exist please register", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(LoginScreen.this, "Account not found Please register", Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(LoginScreen.this,RegisterActivity.class);
                                             startActivity(intent);
-                                            finish();
                                         }
 
                                     }else{
@@ -160,9 +165,46 @@ public class LoginScreen extends AppCompatActivity {
                             .addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-
+                                    Toast.makeText(LoginScreen.this, "user does not exist please register", Toast.LENGTH_SHORT).show();
                                 }
                             });
+//                    db.collection("DoctorBooking").document(ed_mobile.getText().toString())
+//                            .get()
+//                            .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//                                @Override
+//                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                                    if(task.isSuccessful()){
+//                                        FirestoreModel user = Objects.requireNonNull(task.getResult()).toObject(FirestoreModel.class);
+//                                        if(user != null){
+//                                            progressDialog.dismiss();
+//                                            TransitionManager.beginDelayedTransition(transitionsContainer);
+//                                            container_buttons.setVisibility(View.VISIBLE);
+//                                            btn_login_with_otp.setOnClickListener(new View.OnClickListener() {
+//                                                @Override
+//                                                public void onClick(View v) {
+//                                                    sendOtp(ed_mobile.getText().toString());
+//                                                }
+//                                            });
+//
+//                                        }else{
+//                                            Toast.makeText(LoginScreen.this, "user does not exist please register", Toast.LENGTH_SHORT).show();
+//                                            Intent intent = new Intent(LoginScreen.this,RegisterActivity.class);
+//                                            startActivity(intent);
+//                                            finish();
+//                                        }
+//
+//                                    }else{
+//                                        String excep = Objects.requireNonNull(task.getException()).getMessage();
+//                                        Log.d("tag", "Error reading user data " + excep);
+//                                    }
+//                                }
+//                            })
+//                            .addOnFailureListener(new OnFailureListener() {
+//                                @Override
+//                                public void onFailure(@NonNull Exception e) {
+//
+//                                }
+//                            });
 
                 }
 

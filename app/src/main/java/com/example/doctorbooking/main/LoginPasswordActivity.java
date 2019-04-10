@@ -70,22 +70,7 @@ public class LoginPasswordActivity extends AppCompatActivity {
                                 Toast.makeText(LoginPasswordActivity.this, "user does not exist please register", Toast.LENGTH_SHORT).show();
                             }
                         });
-//                db.collection("DoctorBooking").whereEqualTo("password",ed_pass.getText().toString())
-//                       .get()
-//                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                            @Override
-//                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                                if (task.isSuccessful()){
-//                                    FirestoreModel user = Objects.requireNonNull(task.getResult()).toObject(FirestoreUserModel.class);
-//                                    for (QueryDocumentSnapshot document : task.getResult()) {
-//                                        Log.d("tag", document.getId() + " => " + document.getData());
-//                                    }
-//                                }else {
-//                                    Log.d("tag",task.getResult().toString());
-//                                    Toast.makeText(LoginPasswordActivity.this, "Error ", Toast.LENGTH_SHORT).show();
-//                                }
-//                            }
-//                        });
+
             }
         });
     }
