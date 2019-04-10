@@ -38,7 +38,7 @@ public class LoginScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
-        setupUI(findViewById(R.id.parent));
+        setupUI(findViewById(R.id.transitions_container));
 
 
         sharedPreferences = getSharedPreferences(Constants.pref_name, Context.MODE_PRIVATE);
